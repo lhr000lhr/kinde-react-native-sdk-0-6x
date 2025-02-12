@@ -34,10 +34,6 @@ class Storage extends BaseStore {
     }
 
     async getStorage() {
-        if (isExpoGo) {
-            const builder = await import('./ExpoStorage');
-            return new builder.default();
-        }
         const builder = await import('./RNStorage');
         return new builder.default();
     }

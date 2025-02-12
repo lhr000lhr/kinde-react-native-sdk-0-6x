@@ -11,7 +11,6 @@
  *
  */
 /// <reference types="react-native-inappbrowser-reborn" />
-import * as WebBrowser from 'expo-web-browser';
 import { AuthBrowserOptions } from '../types/Auth';
 import { AdditionalParameters } from '../types/KindeSDK';
 import KindeSDK from './KindeSDK';
@@ -51,7 +50,7 @@ export declare const checkAdditionalParameters: (additionalParameters?: Addition
  * @returns A function that takes two parameters, target and additionalParameters.
  */
 export declare const addAdditionalParameters: (target: Record<string, string | undefined>, additionalParameters?: AdditionalParameters) => Record<string, string | undefined>;
-export declare const isExpoGo: boolean;
+export declare const isExpoGo = false;
 export declare const OpenWebInApp: (url: string, kindeSDK: KindeSDK, options?: AuthBrowserOptions) => Promise<import("../types/KindeSDK").TokenResponse | null>;
-export declare const openWebBrowser: (url: string, redirectUri: string, options?: AuthBrowserOptions) => Promise<WebBrowser.WebBrowserRedirectResult | WebBrowser.WebBrowserResult | import("react-native-inappbrowser-reborn").BrowserResult>;
+export declare const openWebBrowser: (url: string, redirectUri: string, options?: AuthBrowserOptions) => Promise<import("react-native-inappbrowser-reborn").BrowserResult | import("react-native-inappbrowser-reborn").RedirectResult>;
 export declare const convertObject2FormData: (obj: Record<string, any>) => FormData;

@@ -12,8 +12,6 @@
  */
 
 import crypto, { LibWordArray } from 'crypto-js';
-import Constants, { ExecutionEnvironment } from 'expo-constants';
-import * as WebBrowser from 'expo-web-browser';
 import InAppBrowser from 'react-native-inappbrowser-reborn';
 import { InvalidTypeException } from '../common/exceptions/invalid-type.exception';
 import { PropertyRequiredException } from '../common/exceptions/property-required.exception';
@@ -154,8 +152,7 @@ export const addAdditionalParameters = (
     return target;
 };
 
-export const isExpoGo =
-    Constants.executionEnvironment === ExecutionEnvironment.StoreClient;
+export const isExpoGo = false;
 
 export const OpenWebInApp = async (
     url: string,
@@ -192,9 +189,6 @@ export const openWebBrowser = async (
     redirectUri: string,
     options?: AuthBrowserOptions
 ) => {
-    if (isExpoGo) {
-        return WebBrowser.openAuthSessionAsync(url, redirectUri);
-    }
     if (InAppBrowser) {
         if (await InAppBrowser.isAvailable()) {
             return InAppBrowser.openAuth(url, redirectUri, {
